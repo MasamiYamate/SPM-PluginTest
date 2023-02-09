@@ -5,9 +5,9 @@
 //  Created by Masami on 2023/02/10.
 //
 
-public final class XCDemo {
+public final class XCDemoDEMO {
     
-    public func test() {
+    public static func test() {
         print("Log hogehoge")
     }
     
