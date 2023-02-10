@@ -19,7 +19,8 @@ struct SwiftLintPlugin: BuildToolPlugin {
                                 "WORKDIR=\(context.package.directory)",
                                 "FRAMEWORKNAME=XCDemo",
                                 "DST=\(context.pluginWorkDirectory.string)",
-                                "PATH=\(context.package.directory)"
+                                "PATH=\(context.package.directory)",
+                                "DEMO=\(target.directory.string)"
                              ],
                              outputFilesDirectory: context.pluginWorkDirectory),
                 ]
