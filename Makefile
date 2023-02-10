@@ -1,4 +1,4 @@
 hoge:
 	echo ${DST}
-	echo ${DEMO} > ${DST}/test.txt
+	echo ${SRCROOT} > ${DST}/test.txt
 	zsh ${WORKDIR}/build_tool.sh ${DST}
