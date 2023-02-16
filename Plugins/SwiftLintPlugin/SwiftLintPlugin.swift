@@ -14,7 +14,8 @@ struct SwiftLintPlugin: BuildToolPlugin {
                         .prebuildCommand(displayName: "Run MyPlugin",
                              executable: Path("/bin/bash"),
                              arguments: [
-                                "build_tool.sh",
+                                "\(context.package.directory)/build_tool.sh",
+                                "\(context.package.directory)",
                                 "\(context.pluginWorkDirectory.string)"
                              ],
                              outputFilesDirectory: context.pluginWorkDirectory),

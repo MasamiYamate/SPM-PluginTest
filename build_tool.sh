@@ -1,27 +1,28 @@
-OUTPUT=$1
+WORK=$1
+OUTPUT=$2
 
 /bin/rm -rf "$OUTPUT/XCDemo.xcframework"
 
 /usr/bin/xcodebuild archive\
-    -project "XCDemo/XCDemo.xcodeproj"\
+    -project "$WORK/XCDemo/XCDemo.xcodeproj"\
     -scheme "XCDemo"\
     -configuration "Release"\
     -destination "generic/platform=iOS"\
-    -archivePath "intermediate/XCDemo.framework-iphoneos.xcarchive"\
+    -archivePath "$WORK/intermediate/XCDemo.framework-iphoneos.xcarchive"\
     SKIP_INSTALL=NO\
     BUILD_LIBRARY_FOR_DISTRIBUTION=YES
 
 /usr/bin/xcodebuild archive\
-    -project "XCDemo/XCDemo.xcodeproj"\
+    -project "$WORK/XCDemo/XCDemo.xcodeproj"\
     -scheme "XCDemo"\
     -configuration "Release"\
     -destination "generic/platform=iOS Simulator"\
-    -archivePath "intermediate/XCDemo.framework-iphonesimulator.xcarchive"\
+    -archivePath "$WORK/intermediate/XCDemo.framework-iphonesimulator.xcarchive"\
     SKIP_INSTALL=NO\
     BUILD_LIBRARY_FOR_DISTRIBUTION=YES
 
 rm -rf XCDemo.xcframework
 /usr/bin/xcodebuild -create-xcframework\
-    -framework "intermediate/XCDemo.framework-iphoneos.xcarchive/Products/Library/Frameworks/XCDemo.framework"\
-    -framework "intermediate/XCDemo.framework-iphonesimulator.xcarchive/Products/Library/Frameworks/XCDemo.framework"\
-    -output "XCDemo.xcframework"
+    -framework "$WORK/intermediate/XCDemo.framework-iphoneos.xcarchive/Products/Library/Frameworks/XCDemo.framework"\
+    -framework "$WORK/intermediate/XCDemo.framework-iphonesimulator.xcarchive/Products/Library/Frameworks/XCDemo.framework"\
+    -output "$WORK/XCDemo.xcframework"
