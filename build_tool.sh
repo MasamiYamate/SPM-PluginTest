@@ -20,7 +20,8 @@ OUTPUT=$1
     SKIP_INSTALL=NO\
     BUILD_LIBRARY_FOR_DISTRIBUTION=YES
 
+rm -rf XCDemo.xcframework
 /usr/bin/xcodebuild -create-xcframework\
     -framework "intermediate/XCDemo.framework-iphoneos.xcarchive/Products/Library/Frameworks/XCDemo.framework"\
     -framework "intermediate/XCDemo.framework-iphonesimulator.xcarchive/Products/Library/Frameworks/XCDemo.framework"\
-    -output "$OUTPUT/XCDemo.xcframework"
+    -output "XCDemo.xcframework"
